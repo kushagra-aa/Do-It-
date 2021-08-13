@@ -1,0 +1,35 @@
+{%extends "base.html"%} 
+{%block content%}
+<div class="container">
+
+	<div class="row m-4">
+		<div class="col">
+			<div class="display-3 text-center">Add Item</div>
+			<form action="add_todo/" method="post" class="row row-cols-lg-auto g-3 align-items-center">
+      {% csrf_token %}
+
+				<div class="col5">
+
+				<input type="text" class="form-control mb-2" placeholder="Type Item" name="todo">
+				</div>
+		<div class="col12">
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  </div>
+      </form>
+  </div>
+</div> 
+<div class="row">
+  <div class="col4">
+    <ul class="list-group">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+</ul>
+  </div>
+</div>
+
+</div>
+
+{%endblock%}
