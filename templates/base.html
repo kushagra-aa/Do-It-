@@ -6,17 +6,38 @@
     <title>Do It!</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    {% comment %} favicon links {% endcomment %} 
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "assets/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "assets/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "assets/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "assets/favicon/site.webmanifest" %}"> 
+    {%comment %} bootstrap cdns {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static "css/style.css" %}"> 
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-   <div class="container-fluid">
-      <a class="navbar-brand" href="/">Do It!</a>
-    </div>  
-</nav>
-    {%block content%}
-
-    {%endblock%}
+    <nav class="navbar">
+        <a class="navbar-brand" href="/"> 
+        <img src="{% static "assets/logo/Do-It!-light.png"%}" alt="Do IT!" class="logo" > 
+        Do It!
+        </a>
+    </nav>
+    {%block content%} {%endblock%}
+    <footer>
+  <div class="footer-copy">
+    &copyDo It! 2021 By
+    <a
+      class="grey-text text-lighten-4"
+      href="https://kushagra-aa.github.io/portfolio/"
+       target="_blank">Kushagra Agnihotri</a
+    >
+  </div>
+  <a class="rt sec" href="https://github.com/kushagra-aa/multlists" target="_blank">Get Code</a>
+</footer>
   </body>
 </html>

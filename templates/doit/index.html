@@ -1,41 +1,46 @@
-  {%extends "base.html"%} 
-{%block content%}
+{%extends "base.html"%} {%block content%}
 <div class="container text-center">
+  <div class="row m-4">
+    <div class="col center">
+      <form
+        action="add_todo/"
+        method="post"
+        class="row row-cols-lg-auto g-3 align-items-center"
+      >
+        {% csrf_token %}
 
-	<div class="row m-4">
-		<div class="col">
-			<div class="display-3 text-center">Add Item</div>
-			<form action="add_todo/" method="post" class="row row-cols-lg-auto g-3 align-items-center">
-      {% csrf_token %}
+        <div class="col5">
+          <input
+            type="text"
+            class="form-control mb-2 enter"
+            placeholder="Type Item.."
+            name="todo"
+          />
+        </div>
 
-				<div class="col5">
-
-				<input type="text" class="form-control mb-2" placeholder="Type Item" name="todo">
-				</div>
-		<div class="col12">
-      <button type="submit" class="btn btn-primary mb-2">Submit</button>
-  </div>
-      </form>
-  </div>
-</div> 
-<div class="row">
-  <div class="col4">
-    <ul class="list-group">
-      {%for todo_item in todo_items%}
-
-  <li class="list-group-item text-center">{{todo_item.text}} 
-    <div class="float-end">
-      <form action="delete_todo/{{todo_item.id}}/" method="post">
-
-     <button type="submit" class="btn btn-danger btn-sm">X</button>
+        <div class="col12">
+          <button type="submit" class="btn btn-primary mb-2">AddIt</button>
+        </div>
       </form>
     </div>
-     </li>
-      {%endfor%}
-</ul>
   </div>
-</div>
+  <div class="row">
+    <div class="col4">
+      <ul class="list-group">
+        {%for todo_item in todo_items%}
 
+        <li class="list-group-item text-center">
+          {{todo_item.text}}
+          <div class="float-end">
+            <form action="delete_todo/{{todo_item.id}}/" method="post">
+              <button type="submit" class="btn btn-danger btn-sm">Done!</button>
+            </form>
+          </div>
+        </li>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
 </div>
 
 {%endblock%}
